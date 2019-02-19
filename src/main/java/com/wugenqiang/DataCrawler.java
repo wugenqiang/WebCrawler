@@ -35,10 +35,11 @@ public class DataCrawler {
         //获取所有的博客列表集合
         Elements blogList = doc.select("div[data-articleId]");
 //针对每个博客内容进行解析，并输出
-        for (Element element : blogList) {
+        for (int i=1;i<blogList.size();i++) {
             //String title = element.select("h4[class]").text().substring(2);
-            String url1 = element.getElementsByTag("a").get(0).attr("href");
-            getContentUrl(url1);
+            String url1 = blogList.get(i).getElementsByTag("a").get(0).attr("href");
+            //getContentUrl(url1);
+            System.out.println("url1:\t" + url1);
         }
 
 
